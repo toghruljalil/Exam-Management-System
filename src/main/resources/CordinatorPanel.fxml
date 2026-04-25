@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<TabPane prefHeight="700.0" prefWidth="1100.0" styleClass="root-pane" stylesheets="@styles/dashboard.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CordinatorController">
+
+    <tabs>
+        <Tab closable="false" text="Derslik Yönetimi">
+            <content>
+                <AnchorPane disable="true" prefWidth="728.0">
+                    <children>
+
+                        <!-- Ana içerik -->
+                        <ScrollPane fx:id="scrollpane" fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.0" prefHeight="642.0" prefWidth="1100.0">
+                            <content>
+                                <VBox prefWidth="889.0" spacing="25" styleClass="content-box">
+                                    <children>
+                              <VBox prefHeight="26.0" prefWidth="842.0">
+                                 <children>
+                                            <Text styleClass="header-title" text="🎓 Derslik Yönetimi" wrappingWidth="261.71600341796875" />
+                                 </children>
+                              </VBox>
+
+                                        <!-- Derslik Ekle Alanı -->
+                                        <VBox prefHeight="122.0" prefWidth="842.0" spacing="10" styleClass="card">
+                                            <Text styleClass="section-title" text="Derslik Ekle" />
+
+                                            <FlowPane hgap="10" vgap="10">
+                                                <children>
+                                                    <TextField fx:id="bolumAdi" editable="false" promptText="Bölüm Adı" />
+                                                    <TextField fx:id="derslikAdi" promptText="Derslik Adı" />
+                                                    <TextField fx:id="derslikKodu" promptText="Derslik Kodu" />
+                                                    <TextField fx:id="enineSira" promptText="Enine Sıra Sayısı" />
+                                                    <TextField fx:id="boyunaSira" promptText="Boyuna Sıra Sayısı" />
+                                                    <TextField fx:id="kapasite" promptText="Kapasite" />
+                                                    <TextField fx:id="siraYapisi" promptText="Sıra Yapısı" />
+                                                    <Button fx:id="derslikeklebutton" onAction="#DerslikEkle" styleClass="accent-button" text="➕ Derslik Ekle" />
+                                                </children>
+                                            </FlowPane>
+                                        </VBox>
+
+                                        <!-- Derslik Arama -->
+                                        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="card">
+                                            <TextField fx:id="derslikarafield" promptText="Derslik Kodu (Ör : 3001)" />
+                                            <Button fx:id="derslikarabutton" onAction="#DerslikAra" styleClass="primary-button" text="🔍 Ara" />
+                                        </HBox>
+
+                                        <!-- Derslikler Tablosu -->
+                                        <VBox prefHeight="318.0" prefWidth="884.0" spacing="10" styleClass="card">
+                                            <Text styleClass="section-title" text="Derslikler" />
+                                            <TableView fx:id="dersliktable" prefHeight="242.0" prefWidth="835.0">
+                                                <columns>
+                                                    <TableColumn fx:id="bolumadicol" prefWidth="157.33334040641785" text="Bölüm Adı" />
+                                                    <TableColumn fx:id="derslikkoducol" prefWidth="99.46664428710938" text="Derslik Kodu" />
+                                                    <TableColumn fx:id="derslikadicol" prefWidth="92.79998779296875" text="Derslik Adı" />
+                                                    <TableColumn fx:id="derslikkapasitesicol" prefWidth="66.39996337890625" text="Kapasite" />
+                                                    <TableColumn fx:id="eninesiracol" prefWidth="88.79998779296875" text="Enine Sıra" />
+                                                    <TableColumn fx:id="boyunasiracol" prefWidth="95.19998168945312" text="Boyuna Sıra" />
+                                                    <TableColumn fx:id="sirayapisicol" prefWidth="105.86663818359375" text="Sıra Yapısı" />
+                                                    <TableColumn fx:id="derslikislemcol" prefWidth="198.13330078125" text="İşlem" />
+                                                </columns>
+                                    <columnResizePolicy>
+                                       <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                            </TableView>
+                                        </VBox>
+
+                                        <!-- Derslik Düzenle -->
+                                        <VBox spacing="10" styleClass="card">
+                                            <Text styleClass="section-title" text="Derslik Düzenle" />
+
+                                            <FlowPane hgap="10" vgap="10">
+                                                <children>
+                                                    <TextField fx:id="bolumadiduzenle" editable="false" promptText="Bölüm Adı" />
+                                                    <TextField fx:id="derslikadiduzenle" editable="false" promptText="Derslik Adı" />
+                                                    <TextField fx:id="eninesiraduzenle" editable="false" promptText="Enine Sıra" />
+                                                    <TextField fx:id="boyunasiraduzenle" editable="false" promptText="Boyuna Sıra" />
+                                                    <TextField fx:id="kapasiteduzenle" editable="false" promptText="Kapasite" />
+                                                    <TextField fx:id="sirayapisiduzenle" editable="false" promptText="Sıra Yapısı" />
+                                                    <Button onAction="#DerslikDuzenle" styleClass="accent-button" text="💾 Kaydet" />
+                                                </children>
+                                            </FlowPane>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+      <Tab fx:id="dersekletab" closable="false" disable="true" text="Ders Listesi Yükle">
+         <content>
+            <AnchorPane disable="true" prefWidth="728.0">
+               <children>
+                  <ScrollPane fx:id="scrollpane1" fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.0" prefHeight="642.0" prefWidth="1100.0">
+                     <content>
+                        <VBox prefWidth="889.0" spacing="25" styleClass="content-box">
+                           <children>
+                              <VBox prefHeight="26.0" prefWidth="842.0">
+                                 <children>
+                                    <Text styleClass="header-title" text="📖 Ders Listesi Yükle" wrappingWidth="338.51605224609375" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="122.0" prefWidth="842.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Ders Listesi Girişi" />
+                                    <FlowPane hgap="10" vgap="10">
+                                       <children>
+                                          <TextField fx:id="derslistesiadi" editable="false" promptText="Dosya Adı" />
+                                          <Button onAction="#DersExcelYukle" styleClass="accent-button" text="➕ Ders Listesi Seç" />
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="384.0" prefWidth="1042.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Kaydedilecek Dersler" />
+                                    <TableView fx:id="derstable1" prefHeight="319.0" prefWidth="1001.0">
+                                       <columns>
+                                          <TableColumn fx:id="derskodu1" prefWidth="111.20003962516785" text="Ders Kodu" />
+                                          <TableColumn fx:id="dersadi1" prefWidth="290.3999938964844" text="Ders Adı" />
+                                          <TableColumn fx:id="dershocaadi1" prefWidth="357.6000061035156" text="Dersi Veren Öğretim Elemanı" />
+                                          <TableColumn fx:id="derssinif1" prefWidth="96.79998779296875" text="Sınıf" />
+                                          <TableColumn fx:id="dersyapi1" prefWidth="132.79986572265625" text="Dersin Tipi" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox prefHeight="40.0" prefWidth="1001.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="885.0700492858887" />
+                                          <Button fx:id="derslistesionayla" disable="true" mnemonicParsing="false" onAction="#DersKaydetVeritabani" prefHeight="41.0" prefWidth="105.0" styleClass="accent-button" text="ONAYLA" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="ogrenciekletab" closable="false" disable="true" text="Öğrenci Listesi Yükle">
+         <content>
+            <AnchorPane disable="true" prefWidth="728.0">
+               <children>
+                  <ScrollPane fx:id="scrollpane11" fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.0" prefHeight="642.0" prefWidth="1100.0">
+                     <content>
+                        <VBox prefWidth="889.0" spacing="25" styleClass="content-box">
+                           <children>
+                              <VBox prefHeight="26.0" prefWidth="842.0">
+                                 <children>
+                                    <Text styleClass="header-title" text="👤 Öğrenci Listesi Yükle" wrappingWidth="389.7160949707031" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="122.0" prefWidth="842.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Öğrenci Listesi Girişi" />
+                                    <FlowPane hgap="10" vgap="10">
+                                       <children>
+                                          <TextField fx:id="ogrencilistesiadi" editable="false" promptText="Dosya Adı" />
+                                          <Button onAction="#OgrenciExcelYukle" styleClass="accent-button" text="➕ Öğrenci Listesi Seç" />
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="384.0" prefWidth="1042.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Kaydedilecek Öğrenciler" />
+                                    <TableView fx:id="ogrencitable1" prefHeight="319.0" prefWidth="1001.0">
+                                       <columns>
+                                          <TableColumn fx:id="ogrencikodu1" prefWidth="239.99999690055847" text="Öğrenci Numarası" />
+                                          <TableColumn fx:id="ogrenciisim1" prefWidth="280.7999572753906" text="Öğrenci İsmi" />
+                                          <TableColumn fx:id="ogrencisinif1" prefWidth="227.73333740234375" text="Sınıfı" />
+                                          <TableColumn fx:id="ogrenciders1" prefWidth="257.06658935546875" text="Aldığı Dersin Kodu" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox prefHeight="40.0" prefWidth="1001.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="885.0700492858887" />
+                                          <Button fx:id="ogrencilistesionayla" disable="true" mnemonicParsing="false" onAction="#OgrenciKaydetVeritabani" prefHeight="41.0" prefWidth="105.0" styleClass="accent-button" text="ONAYLA" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="derslistesitab" closable="false" disable="true" text="Ders Listesi">
+         <content>
+            <AnchorPane disable="true" prefWidth="728.0">
+               <children>
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.0" prefHeight="642.0" prefWidth="1100.0">
+                     <content>
+                        <VBox prefWidth="889.0" spacing="25" styleClass="content-box">
+                           <children>
+                              <VBox prefHeight="26.0" prefWidth="842.0">
+                                 <children>
+                                    <Text styleClass="header-title" text="📖 Ders Ara" wrappingWidth="389.7160949707031" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="122.0" prefWidth="842.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Ders Adı / Kodu İle Ara" />
+                                    <FlowPane hgap="10" vgap="10">
+                                       <children>
+                                          <TextField fx:id="dersara" onKeyTyped="#DersAra" promptText="Ders Adı / Kodu" />
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="207.73669052124023" />
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="384.0" prefWidth="1042.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Bölümdeki Tüm Dersler" />
+                                    <TableView fx:id="derstable2" prefHeight="319.0" prefWidth="1001.0">
+                                       <columns>
+                                          <TableColumn fx:id="derskodu2" prefWidth="239.99999690055847" text="Dersin Kodu" />
+                                          <TableColumn fx:id="dersadi2" prefWidth="257.06658935546875" text="Dersin Adı" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox prefHeight="40.0" prefWidth="1001.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="384.0" prefWidth="1042.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Dersi Alan Öğrenciler" />
+                                    <TableView fx:id="dersialanogrencilertable" prefHeight="319.0" prefWidth="1001.0">
+                                       <columns>
+                                          <TableColumn fx:id="dersialanogrencino" prefWidth="239.99999690055847" text="Öğrenci Numarası" />
+                                          <TableColumn fx:id="dersialanogrenciadi" prefWidth="257.06658935546875" text="Öğrenci İsmi" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox prefHeight="40.0" prefWidth="1001.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="ogrencilistesitab" closable="false" disable="true" text="Öğrenci Listesi">
+         <content>
+            <AnchorPane disable="true" prefWidth="728.0">
+               <children>
+                  <ScrollPane fx:id="scrollpane111" fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.0" prefHeight="642.0" prefWidth="1100.0">
+                     <content>
+                        <VBox prefWidth="889.0" spacing="25" styleClass="content-box">
+                           <children>
+                              <VBox prefHeight="26.0" prefWidth="842.0">
+                                 <children>
+                                    <Text styleClass="header-title" text="👤 Öğrenci Ara" wrappingWidth="389.7160949707031" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="122.0" prefWidth="842.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Öğrenci Numarası İle Ara" />
+                                    <FlowPane hgap="10" vgap="10">
+                                       <children>
+                                          <TextField fx:id="ogrenciara" onKeyTyped="#OgrenciAra" promptText="Öğrenci No" />
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="207.73669052124023" />
+                                          <TextField fx:id="ogrencininadisoyadi" editable="false" prefHeight="42.0" prefWidth="342.0" />
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="384.0" prefWidth="1042.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <Text styleClass="section-title" text="Öğrencinin Aldığı Dersler" />
+                                    <TableView fx:id="ogrencitable2" prefHeight="319.0" prefWidth="1001.0">
+                                       <columns>
+                                          <TableColumn fx:id="ogrenciderskodu" prefWidth="239.99999690055847" text="Dersin Kodu" />
+                                          <TableColumn fx:id="ogrencidersadi" prefWidth="257.06658935546875" text="Dersin Adı" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox prefHeight="40.0" prefWidth="1001.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="sinavprogramitab" closable="false" disable="true" text="Sınav Programı Oluştur">
+         <content>
+            <AnchorPane disable="true" prefWidth="728.0">
+               <children>
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.0" prefHeight="642.0" prefWidth="1100.0">
+                     <content>
+                        <VBox prefWidth="889.0" spacing="25" styleClass="content-box">
+                           <children>
+                              <VBox prefHeight="26.0" prefWidth="842.0">
+                                 <children>
+                                    <Text styleClass="header-title" text="📝 Sınav Programı Oluştur" wrappingWidth="389.7160949707031" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="1577.0" prefWidth="1051.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <FlowPane prefHeight="377.0" prefWidth="1006.0">
+                                       <children>
+                                          <Text fill="WHITE" styleClass="header-title" text="⚙ Kısıtlar" wrappingWidth="915.5827026367188">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="28.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="WHITE" styleClass="section-title" wrappingWidth="790.78271484375">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="WHITE" styleClass="header-title" text="⛔ Çıkarılacak Dersleri Seçiniz" wrappingWidth="696.9159545898438">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="WHITE" wrappingWidth="514.5159301757812">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="10.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="cikarilacakderstable" editable="true" prefHeight="266.0" prefWidth="1006.0">
+                                            <columns>
+                                              <TableColumn fx:id="cikarilacakderskodu" prefWidth="466.93336939811707" sortable="false" text="Dersin Kodu" />
+                                              <TableColumn fx:id="cikarilacakdersadi" prefWidth="436.0001220703125" sortable="false" text="Dersin Adı" />
+                                                <TableColumn fx:id="cikarilacakderssec" prefWidth="95.19989013671875" sortable="false" text="Seç" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                          <Text fill="WHITE" styleClass="section-title" wrappingWidth="684.1160583496094">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="WHITE" styleClass="header-title" text="📅 Sınav Başlangıç  ve Bitiş Tarihleri Seçiniz" wrappingWidth="881.4493103027344">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </FlowPane>
+                                    <AnchorPane prefHeight="1159.0" prefWidth="1010.0">
+                                       <children>
+                                          <Text fill="WHITE" layoutX="5.0" layoutY="38.0" styleClass="section-title" text="Başlangıç Tarihi" wrappingWidth="133.71603393554688">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="WHITE" layoutX="308.0" layoutY="38.0" styleClass="section-title" text="Bitiş Tarihi" wrappingWidth="133.71603393554688">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <DatePicker fx:id="sinavbaslangicdate" layoutX="2.0" layoutY="55.0" onAction="#GunAl" prefHeight="40.0" prefWidth="200.0" />
+                                          <DatePicker fx:id="sinavbitisdate" layoutX="309.0" layoutY="55.0" onAction="#GunAl" prefHeight="40.0" prefWidth="200.0" />
+                                          <CheckComboBox fx:id="dahilolmayangunler" layoutX="2.0" layoutY="163.0" prefHeight="50.0" prefWidth="203.0" />
+                                          <Text fill="WHITE" layoutX="4.0" layoutY="145.0" styleClass="section-title" text="Sınava Dahil Olmayacak Günler" wrappingWidth="283.04937744140625">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="WHITE" layoutX="4.0" layoutY="277.0" styleClass="header-title" text="📝 Sınav Türü" wrappingWidth="253.18270874023438">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <ComboBox fx:id="sinavturu" layoutX="2.0" layoutY="293.0" prefWidth="201.0" />
+                                          <Text fill="WHITE" layoutX="4.0" layoutY="404.0" styleClass="header-title" text="🕒 Sınav Süresi" wrappingWidth="253.18270874023438">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="sinavsuresitable" editable="true" layoutX="3.0" layoutY="448.0" prefHeight="266.0" prefWidth="1006.0">
+                                             <columns>
+                                                <TableColumn fx:id="sinavsuresiderskodu" editable="false" prefWidth="203.73334980010986" sortable="false" text="Dersin Kodu" />
+                                                <TableColumn fx:id="sinavsuresidersadi" editable="false" prefWidth="537.8666534423828" sortable="false" text="Dersin Adı" />
+                                                <TableColumn fx:id="sinavsuresi" prefWidth="238.13330078125" sortable="false" text="Sınav Süresi" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                          <Text fill="WHITE" layoutX="4.0" layoutY="780.0" styleClass="header-title" text="🕒 Bekleme Süresi" wrappingWidth="260.6494140625">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="beklemesuresi" layoutX="4.0" layoutY="809.0" prefHeight="42.0" prefWidth="211.0" promptText="Varsayılan 15dk." />
+                                          <Text fill="WHITE" layoutX="4.0" layoutY="920.0" styleClass="header-title" text="⏰ Aynı Zamanda Sınav Oluşumu" wrappingWidth="478.2493896484375">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <CheckBox fx:id="aynizamandasinav" layoutX="4.0" layoutY="950.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="125.0" text="KAPAT" />
+                                          <Button layoutX="873.0" layoutY="1039.0" mnemonicParsing="false" onAction="#SinavOlustur" prefHeight="49.0" prefWidth="116.0" styleClass="accent-button" text="OLUŞTUR" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="oturmaduzenitab" closable="false" disable="true" text="Oturma Düzeni">
+         <content>
+            <AnchorPane disable="true" prefWidth="728.0">
+               <children>
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="-3.0" prefHeight="642.0" prefWidth="1100.0">
+                     <content>
+                        <VBox prefWidth="889.0" spacing="25" styleClass="content-box">
+                           <children>
+                              <VBox prefHeight="26.0" prefWidth="842.0">
+                                 <children>
+                                    <Text styleClass="header-title" text="📃 Oturma Düzeni Oluşturma ve Görüntüleme" wrappingWidth="661.7160339355469" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="416.0" prefWidth="1055.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <AnchorPane prefHeight="746.0" prefWidth="1014.0">
+                                       <children>
+                                          <Text fill="WHITE" layoutX="3.0" layoutY="25.0" styleClass="header-title" text="Oluşturulmuş Sınavlar" wrappingWidth="696.9159545898438">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="sinavtable" layoutX="1.0" layoutY="51.0" prefHeight="318.0" prefWidth="996.0">
+                                            <columns>
+                                              <TableColumn fx:id="sinavtarih" prefWidth="487.20003962516785" text="Tarih" />
+                                              <TableColumn fx:id="sinavsaat" prefWidth="487.20001220703125" text="Saat" />
+                                                <TableColumn fx:id="sinavderskodu" prefWidth="487.20001220703125" text="Ders Kodu" />
+                                                <TableColumn fx:id="sinavdersadi" prefWidth="487.20001220703125" text="Ders Adı" />
+                                                <TableColumn fx:id="sinavderslik" prefWidth="487.20003962516785" text="Derslik" />
+                                                <TableColumn fx:id="sinavislem" prefWidth="487.20003962516785" text="İşlem" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="416.0" prefWidth="1055.0" spacing="10" styleClass="card">
+                                 <children>
+                                    <AnchorPane prefHeight="746.0" prefWidth="1014.0">
+                                       <children>
+                                          <Text fill="WHITE" layoutX="3.0" layoutY="25.0" styleClass="header-title" text="Oturma Düzeni" wrappingWidth="696.9159545898438">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="oturmaDuzeniTable" layoutX="1.0" layoutY="51.0" prefHeight="318.0" prefWidth="996.0">
+                                             <columns>
+                                                <TableColumn fx:id="oturogrencino" prefWidth="487.20003962516785" text="Öğrenci No" />
+                                                <TableColumn fx:id="oturogrenciadi" prefWidth="487.20001220703125" text="Öğrenci Adı" />
+                                                <TableColumn fx:id="oturduguderslik" prefWidth="487.20001220703125" text="Derslik" />
+                                                <TableColumn fx:id="oturdugusatir" prefWidth="487.20001220703125" text="Satır" />
+                                                <TableColumn fx:id="oturdugusutun" prefWidth="487.20001220703125" text="Sütün" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+    </tabs>
+</TabPane>

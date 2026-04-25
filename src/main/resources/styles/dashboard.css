@@ -1,0 +1,600 @@
+/* dashboard.css - Modern Koyu Yeşil Tema */
+
+/* Renk Paleti */
+.root {
+    -primary-dark: #1a3c34;
+    -primary: #2d5c4f;
+    -primary-light: #3d7a6a;
+    -accent: #4ca387;
+    -accent-light: #6bc4a6;
+    -text-primary: #e8f4f0;
+    -text-secondary: #b8d5cb;
+    -text-muted: #8ab4a6;
+    -background-dark: #0f1f1a;
+    -background: #142822;
+    -background-light: #1c352e;
+    -border: #2a4a40;
+    -error: #ff6b6b;
+    -success: #51cf66;
+}
+
+/* Ana Pane Stili */
+.root-pane {
+    -fx-background-color: -background-dark;
+}
+
+/* Tab Pane Stili */
+.tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-width: 120px;
+    -fx-tab-min-height: 40px;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: -primary-dark;
+    -fx-padding: 5px 0px 0px 0px;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: -primary-dark;
+}
+
+.tab {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5px 5px 0px 0px;
+    -fx-padding: 8px 16px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+}
+
+.tab:selected {
+    -fx-background-color: -background;
+    -fx-border-color: -accent;
+    -fx-border-width: 0px 0px 3px 0px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab .tab-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-weight: 600;
+    -fx-font-size: 14px;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: -text-primary;
+    -fx-font-weight: 700;
+}
+
+.scroll-pane {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0f1f1a, #142822, #1c352e);
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #142822, #2d5c4f, #1c352e);
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: -background-light;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+    -fx-background-color: -background-light;
+    -fx-border-color: transparent;
+    -fx-background-radius: 2px;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: -primary;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -primary-light;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 2px;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-background-color: -text-muted;
+}
+
+/* İçerik Box Stili */
+.content-box {
+    -fx-background-color: transparent;
+    -fx-padding: 20px;
+}
+
+/* Kart Stilleri */
+.card {
+    -fx-background-color: -background-light;
+    -fx-background-radius: 12px;
+    -fx-border-color: -border;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0, 0, 5);
+}
+
+/* Başlık Stilleri */
+.header-title {
+    -fx-fill: -text-primary;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 2, 2);
+}
+
+.section-title {
+    -fx-fill: -text-primary;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0px 0px 10px 0px;
+}
+
+/* TextField Stilleri */
+.text-field {
+    -fx-background-color: -background;
+    -fx-background-radius: 8px;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-muted;
+    -fx-padding: 12px 15px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: -accent;
+    -fx-background-color: -background-light;
+    -fx-effect: dropshadow(gaussian, rgba(76, 163, 135, 0.2), 10, 0, 0, 0);
+}
+
+.text-field:disabled {
+    -fx-background-color: -primary-dark;
+    -fx-text-fill: -text-muted;
+    -fx-border-color: -border;
+}
+
+/* Buton Stilleri */
+.button {
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 12px 20px;
+    -fx-font-weight: 600;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgb(0, 0, 0), 5, 0, 2, 2);
+    -fx-transition: all 0.3s;
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 3, 3);
+    -fx-translate-y: -1px;
+}
+
+.primary-button {
+    -fx-background-color: -primary;
+    -fx-border-color: -primary-light;
+    -fx-text-fill: -text-primary;
+}
+
+.primary-button:hover {
+    -fx-background-color: -primary-light;
+    -fx-border-color: -accent;
+}
+
+.accent-button {
+    -fx-background-color: -accent;
+    -fx-border-color: -accent-light;
+    -fx-text-fill: #ffffff;
+}
+
+.accent-button:hover {
+    -fx-background-color: -accent-light;
+    -fx-border-color: #8ae6c3;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -primary-dark;
+    -fx-background-radius: 8px 8px 0px 0px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: -border;
+    -fx-border-width: 0px 1px 0px 0px;
+    -fx-padding: 10px 5px;
+}
+
+.table-view .column-header:last-child {
+    -fx-border-width: 0px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -text-primary;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: -background-light;
+    -fx-border-color: transparent;
+    -fx-text-fill: -text-primary;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: -background;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: -primary;
+    -fx-text-fill: -text-primary;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: -primary-dark;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: -text-primary;
+    -fx-border-color: transparent;
+    -fx-padding: 8px 5px;
+    -fx-font-size: 13px;
+}
+
+.table-view .scroll-bar * {
+    -fx-min-width: 8px;
+    -fx-pref-width: 8px;
+    -fx-max-width: 8px;
+    -fx-min-height: 8px;
+    -fx-pref-height: 8px;
+    -fx-max-height: 8px;
+}
+
+.flow-pane {
+    -fx-background-color: transparent;
+}
+
+.hbox, .vbox {
+    -fx-background-color: transparent;
+}
+
+.text {
+    -fx-fill: -text-primary;
+    -fx-font-smoothing-type: lcd;
+}
+
+.anchor-pane {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0f1f1a, #142822, #1c352e);
+    -fx-border-color: transparent;
+}
+
+/* Özel efektler ve geçişler */
+* {
+    -fx-font-family: "Segoe UI", "System", sans-serif;
+}
+
+/* Responsive tasarım için */
+@media (max-width: 600px) {
+    .card {
+        -fx-padding: 15px;
+    }
+
+    .text-field {
+        -fx-padding: 10px 12px;
+    }
+
+    .button {
+        -fx-padding: 10px 16px;
+    }
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+.card {
+    -fx-animation: fadeIn 0.5s ease-in;
+}
+
+/* === DATEPICKER STİLİ === */
+
+.date-picker {
+    -fx-background-color: -background;
+    -fx-background-radius: 8px;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 14px;
+    -fx-padding: 6px 10px;
+}
+
+.date-picker:hover {
+    -fx-border-color: -accent-light;
+}
+
+.date-picker:focused {
+    -fx-border-color: -accent;
+    -fx-background-color: -background-light;
+    -fx-effect: dropshadow(gaussian, rgba(76, 163, 135, 0.25), 10, 0, 0, 0);
+}
+
+/* Metin alanı (editable alan) */
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-muted;
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+}
+
+/* Takvim açma butonu (sağdaki ikon) */
+.date-picker .arrow-button {
+    -fx-background-color: -primary-dark;
+    -fx-background-radius: 0px 8px 8px 0px;
+    -fx-border-color: transparent;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: -accent;
+}
+
+.date-picker .arrow {
+    -fx-background-color: -text-secondary;
+}
+
+.date-picker:focused .arrow {
+    -fx-background-color: -text-primary;
+}
+
+/* Takvim popup penceresi */
+.date-picker-popup {
+    -fx-background-color: -background;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 4);
+}
+
+.date-picker-popup > .calendar-grid {
+    -fx-background-color: #244536;
+    -fx-border-color: -border;
+}
+
+/* Takvim başlığı (Ay/Yıl seçimi kısmı) */
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: -primary-dark;
+    -fx-text-fill: -text-primary;
+    -fx-font-weight: bold;
+}
+
+/* Gün başlıkları (Pzt, Sal, vs.) */
+.date-picker-popup > * > .day-name-cell {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+/* Gün hücreleri */
+.date-picker-popup > * > .day-cell {
+    -fx-text-fill: -text-primary;
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+}
+
+.date-picker-popup > * > .day-cell:hover {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: -text-primary;
+}
+
+.date-picker-popup > * > .day-cell:selected {
+    -fx-background-color: -accent;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Bugünün tarihi */
+.date-picker-popup > * > .today {
+    -fx-border-color: -accent;
+    -fx-border-width: 1px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5px;
+}
+
+/* === COMBOBOX & CHECKCOMBOBOX STİLİ === */
+
+.combo-box-base,
+.check-combo-box {
+    -fx-background-color: -background;
+    -fx-background-radius: 8px;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 14px;
+    -fx-padding: 6px 10px;
+}
+
+.combo-box-base:hover,
+.check-combo-box:hover {
+    -fx-border-color: -accent-light;
+}
+
+.combo-box-base:focused,
+.check-combo-box:focused {
+    -fx-border-color: -accent;
+    -fx-background-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(76, 163, 135, 0.25), 10, 0, 0, 0);
+}
+
+/* Açılır ok (sağdaki buton) */
+.combo-box-base .arrow-button,
+.check-combo-box .arrow-button {
+    -fx-background-color: -primary-dark;
+    -fx-background-radius: 0px 8px 8px 0px;
+    -fx-border-color: transparent;
+}
+
+.combo-box-base .arrow-button:hover,
+.check-combo-box .arrow-button:hover {
+    -fx-background-color: transparent;
+}
+
+.combo-box-base .arrow,
+.check-combo-box .arrow {
+    -fx-background-color: -text-secondary;
+}
+
+.combo-box-base:focused .arrow,
+.check-combo-box:focused .arrow {
+    -fx-background-color: -text-primary;
+}
+
+/* ComboBox popup menüsü */
+.combo-box-popup,
+.check-combo-box-popup {
+    -fx-background-color: -background;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 4);
+}
+
+/* Liste elemanları (item’lar) */
+.list-cell {
+    -fx-background-color: #244536;
+    -fx-text-fill: -text-primary;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 14px;
+}
+
+.list-cell:hover {
+    -fx-background-color: -primary;
+    -fx-text-fill: -text-primary;
+}
+
+.list-cell:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* CheckComboBox özel stili */
+.check-combo-box .check-box {
+    -fx-text-fill: -text-primary;
+}
+
+.check-combo-box .check-box:selected .box {
+    -fx-background-color: -accent;
+    -fx-border-color: -accent-light;
+}
+
+.check-combo-box .check-box .box {
+    -fx-background-color: -background-light;
+    -fx-border-color: -border;
+    -fx-border-radius: 4px;
+    -fx-padding: 2px;
+}
+
+.check-combo-box .check-box .mark {
+    -fx-background-color: #ffffff;
+}
+
+/* PromptText (seçim yokken görünen yazı) */
+.combo-box-base .text,
+.check-combo-box .text {
+    -fx-fill: -text-muted;
+}
+
+/* Disabled hali */
+.combo-box-base:disabled,
+.check-combo-box:disabled {
+    -fx-opacity: 0.6;
+}
+
+/* === CHECKBOX STİLİ === */
+
+.check-box {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 18px;
+    -fx-font-weight: 500;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 4px 6px;
+}
+
+.check-box:hover {
+    -fx-text-fill: -accent-light;
+}
+
+/* Kutunun dış çerçevesi */
+.check-box .box {
+    -fx-background-color: -background-light;
+    -fx-border-color: -border;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-min-width: 16px;
+    -fx-min-height: 16px;
+    -fx-max-width: 16px;
+    -fx-max-height: 16px;
+    -fx-alignment: CENTER;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 1, 1);
+}
+
+/* Hover efekti */
+.check-box:hover .box {
+    -fx-border-color: -accent-light;
+}
+
+/* Odaklanmış durum */
+.check-box:focused .box {
+    -fx-border-color: -accent;
+    -fx-effect: dropshadow(gaussian, rgba(76, 163, 135, 0.35), 8, 0, 0, 0);
+}
+
+/* Seçili (tikli) durum */
+.check-box:selected .box {
+    -fx-background-color: -accent;
+    -fx-border-color: -accent-light;
+}
+
+/* Tik işareti */
+.check-box:selected .mark {
+    -fx-background-color: #ffffff;
+}
+
+/* Disabled (pasif) durum */
+.check-box:disabled {
+    -fx-opacity: 0.5;
+}
+
+.check-box:disabled .box {
+    -fx-background-color: -primary-dark;
+    -fx-border-color: -border;
+}
+
+.check-box:disabled .mark {
+    -fx-background-color: -text-muted;
+}
+
+/* Animasyon efekti (isteğe bağlı) */
+.check-box .box {
+    -fx-transition: all 0.2s ease-in-out;
+}

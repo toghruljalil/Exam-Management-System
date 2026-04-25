@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600" prefWidth="900" style="-fx-background-color: #244536;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+
+
+    <Pane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+        <SVGPath content="M0,0 L600,0 Q500,300 600,600 L0,600 Z" layoutX="-54.0" layoutY="-10.0" scaleX="0.82" scaleY="1.03" stroke="TRANSPARENT">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.8181818109570127" startX="0.4554924242424242" startY="0.41666670279069384">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.1411764770746231" green="0.2705882489681244" blue="0.21176470816135406" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color opacity="0.6907294988632202" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></SVGPath>
+
+   
+           <ImageView fitHeight="227.0" fitWidth="233.0" layoutX="110.0" layoutY="132.0">
+         <image>
+            <Image url="@images/logo.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="68.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KOCAELİ ÜNİVERSİTESİ" textAlignment="CENTER" wrappingWidth="316.80001220703116">
+         <font>
+            <Font name="Century" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="68.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sınav Yönetim Sistemi" textAlignment="CENTER" wrappingWidth="316.80001220703116">
+         <font>
+            <Font name="Century" size="24.0" />
+         </font>
+      </Text>
+    </Pane>
+
+
+    <VBox alignment="CENTER_LEFT" spacing="15" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="150.0">
+        <Label style="-fx-font-size: 36px; -fx-text-fill: #e3ede4;" text="Hoş Geldiniz 👋" />
+
+        <VBox spacing="10">
+            <Label style="-fx-text-fill: #d3dcd3;" text="E-POSTA ADRESİ" />
+            <TextField fx:id="eposta" promptText="ornek@kocaeli.edu.tr" style="-fx-background-radius: 8; -fx-background-color: #ffffffff; -fx-text-fill: black;" />
+
+            <Label style="-fx-text-fill: #d3dcd3;" text="ŞİFRE" />
+            <PasswordField fx:id="sifre" promptText="********" style="-fx-background-radius: 8; -fx-background-color: #ffffff; -fx-text-fill: black;" />
+        </VBox>
+
+        <Hyperlink style="-fx-text-fill: #8fa99a;" text="Forgot Password?" />
+    </VBox>
+      <Label alignment="BOTTOM_CENTER" layoutX="570.0" layoutY="422.0" prefHeight="23.0" prefWidth="214.0" style="-fx-text-fill: #cdd8cd;" text="© 2025 Kocaeli Üniversitesi" textAlignment="CENTER" />
+
+        <Button layoutX="585.0" layoutY="382.0" onAction="#Login" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: #7dbd8a;                      -fx-text-fill: white;                      -fx-background-radius: 20;                      -fx-font-size: 14px;" text="GİRİŞ YAP" />
+
+</AnchorPane>
