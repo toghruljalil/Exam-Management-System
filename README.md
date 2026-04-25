@@ -201,19 +201,3 @@ The main dependencies are defined in `pom.xml`:
 6. Use the admin or coordinator panel according to the user role.
 7. Manage courses, students, classrooms, and exam schedules.
 8. Export generated outputs when needed.
-
-## Security Notes
-
-- Avoid storing real passwords directly in source code.
-- Do not upload local IDE settings or database connection metadata to public repositories.
-- Keep generated files such as Excel, PDF, logs, and build outputs out of version control unless they are intentionally needed.
-
-## GitHub Upload Notes
-
-Before pushing this project to GitHub, check that the repository does not include:
-
-- Local IDE configuration files
-- Build output folders
-- Generated Excel or PDF files
-- Log files
-- Real database passwords
