@@ -2,20 +2,6 @@
 
 Exam Management System is a JavaFX desktop application designed to help academic departments manage exam planning processes. It provides separate interfaces for administrators and coordinators, stores data in PostgreSQL, and supports course, student, classroom, exam schedule, seating, Excel, and PDF related operations.
 
-## Repository Information
-
-Recommended repository name:
-
-```text
-exam-management-system-javafx
-```
-
-Recommended repository description:
-
-```text
-A JavaFX and PostgreSQL based desktop application for managing courses, students, classrooms, exam schedules, and academic exam planning exports.
-```
-
 ## Features
 
 - Role-based login system
